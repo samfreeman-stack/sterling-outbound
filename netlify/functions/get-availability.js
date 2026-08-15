@@ -15,10 +15,16 @@ exports.handler = async (event) => {
   const eventTypeUri = process.env.CALENDLY_EVENT_TYPE_URI;
 
   if (!token || !eventTypeUri) {
+    const missing = [];
+    if (!token) missing.push("CALENDLY_API_TOKEN");
+    if (!eventTypeUri) missing.push("CALENDLY_EVENT_TYPE_URI");
     return {
       statusCode: 500,
       headers,
-      body: JSON.stringify({ error: "Booking is temporarily unavailable. Please try again shortly or use the direct booking link." }),
+      body: JSON.stringify({
+        error: "Booking is temporarily unavailable. Please try again shortly or use the direct booking link.",
+        debug_missing_env_vars: missing,
+      }),
     };
   }
 
