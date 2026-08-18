@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book a Call | Sterling Outbound</title>
-<meta name="description" content="Book a free 20-minute strategy call with Sterling Outbound to see if AI-powered outreach is a fit for your trade compliance business.">
+<title>See If We're A Fit | Sterling Outbound</title>
+<meta name="description" content="Book a free 20-minute call with Sterling Outbound, or get a free sample of the commercial prospects we'd target for your TR19, gas safety or grease trap business.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -29,7 +29,7 @@
         </li>
         <li><a href="about.html">About</a></li>
         <li><a href="faq.html">FAQ</a></li>
-        <li><a href="contact.html" class="btn btn-primary btn-sm">Book a Call</a></li>
+        <li><a href="contact.html" class="btn btn-primary btn-sm">See If We're A Fit</a></li>
       </ul>
       <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation menu">
         <span></span><span></span><span></span>
@@ -43,7 +43,7 @@
   <section class="page-hero" style="padding-bottom:0;border-bottom:none;">
     <div class="hero-canvas-wrap"><div id="hero-canvas-mount" style="width:100%;height:100%;"></div></div>
     <div class="container page-hero-inner">
-      <span class="eyebrow">Book a call</span>
+      <span class="eyebrow">See if we're a fit</span>
       <h1>Let's see if this is a fit.</h1>
       <p class="lede">20 minutes. No pressure, no obligation — just an honest look at whether this system works for your business.</p>
     </div>
@@ -69,6 +69,57 @@
     </div>
   </section>
 
+  <section class="section section-tight" data-reveal>
+    <div class="container" style="max-width:640px;">
+      <div class="section-head center">
+        <span class="eyebrow">A lighter first step</span>
+        <h2>Get A Sample Of Your Commercial Prospects</h2>
+        <p class="lede">Not ready for a call? Tell us your service area and ideal customer and we'll show you the type of businesses we'd target and how we'd approach them — no commitment.</p>
+      </div>
+
+      <form name="prospect-sample" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+        <input type="hidden" name="form-name" value="prospect-sample" />
+        <p style="position:absolute;left:-9999px;" aria-hidden="true">
+          <label>Leave this field blank<input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
+
+        <div class="form-row-2">
+          <div class="form-field">
+            <label for="sampleName">Name</label>
+            <input type="text" id="sampleName" name="name" required autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="sampleEmail">Email</label>
+            <input type="email" id="sampleEmail" name="email" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="sampleService">Which service do you offer?</label>
+          <select id="sampleService" name="service" required>
+            <option value="">Select one</option>
+            <option value="TR19 / Kitchen Extraction">TR19 / Kitchen Extraction</option>
+            <option value="Commercial Gas Safety">Commercial Gas Safety</option>
+            <option value="Grease Trap Servicing">Grease Trap Servicing</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="sampleArea">Service area <span class="hint">(town, region, or nationwide)</span></label>
+          <input type="text" id="sampleArea" name="service_area" required>
+        </div>
+
+        <div class="form-field">
+          <label for="sampleNotes">Ideal customer <span class="hint">(optional)</span></label>
+          <textarea id="sampleNotes" name="ideal_customer" placeholder="e.g. multi-site restaurant groups, care homes, hotel kitchens"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Show Me My Prospects</button>
+        <p class="form-note" style="text-align:center;">We'll reply by email with a short, honest example — not a sales call.</p>
+      </form>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
@@ -76,21 +127,26 @@
     <div class="footer-inner">
       <div class="footer-col">
         <h4>Sterling Outbound</h4>
-        <p style="max-width:260px;">AI-powered appointment booking for UK trade compliance businesses.</p>
+        <p style="max-width:260px;">Commercial appointment setting for TR19, gas safety and grease trap specialists.</p>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <a href="mailto:hello@sterlingoutbound.co.uk">hello@sterlingoutbound.co.uk</a>
-        <a href="contact.html">Book a call</a>
+        <a href="contact.html">See if we're a fit</a>
       </div>
       <div class="footer-col">
         <h4>Regions Served</h4>
         <p>London &amp; the UK</p>
       </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+      </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Sterling Outbound.</span>
-      <span>Outreach is B2B-only, in line with UK PECR/GDPR.</span>
+      <span>B2B outreach only, with a clear opt-out on every message.</span>
     </div>
   </div>
 </footer>
