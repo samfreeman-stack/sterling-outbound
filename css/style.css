@@ -138,6 +138,7 @@ p { margin: 0 0 var(--space-2); color: var(--text-muted); }
 }
 .btn-ghost:hover { border-color: var(--ink); }
 .btn-sm { padding: 10px 18px; font-size: 14px; }
+.btn-lg { padding: 18px 38px; font-size: 16.5px; }
 .btn svg { width: 16px; height: 16px; flex: none; }
 
 /* dark-panel button variants (header, cta-band, footer) */
@@ -446,15 +447,6 @@ p { margin: 0 0 var(--space-2); color: var(--text-muted); }
 .check-list svg { width: 18px; height: 18px; flex: none; stroke: var(--success); margin-top: 2px; }
 
 .meta-line { font-size: 14.5px; color: var(--text-muted); }
-
-/* ---- Calendly embed frame ---- */
-.calendly-wrap {
-  border: 1px solid var(--line);
-  overflow: hidden;
-}
-@media (max-width: 640px) {
-  .calendly-wrap .calendly-inline-widget { height: 780px !important; }
-}
 
 /* ---- Founder / trust card ---- */
 .founder-card { display: flex; gap: var(--space-4); align-items: flex-start; flex-wrap: wrap; }

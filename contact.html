@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 </head>
 <body class="no-js">
 
@@ -40,8 +41,8 @@
 
 <main>
 
-  <section class="page-hero" style="padding-bottom:0;border-bottom:none;">
-    
+  <section class="page-hero">
+
     <div class="container page-hero-inner">
       <span class="eyebrow">See if we're a fit</span>
       <h1>Let's see if this is a fit.</h1>
@@ -49,21 +50,16 @@
     </div>
   </section>
 
-  <section class="section" data-reveal>
-    <div class="container" style="max-width:720px;">
-      <div class="calendly-wrap">
-        <div class="calendly-inline-widget" data-url="https://calendly.com/samfreeman-sterlingoutbound?hide_gdpr_banner=1&background_color=f7f5f0&text_color=12162a&primary_color=2c4a72" style="min-width:280px;height:680px;"></div>
-      </div>
-
-      <div style="text-align:center;margin-top:var(--space-4);">
-        <a href="https://calendly.com/samfreeman-sterlingoutbound" class="btn btn-ghost" target="_blank" rel="noopener">Open in a new tab</a>
-        <p class="reassure" style="margin-top:14px;">20 minutes. No pressure, no obligation.</p>
-      </div>
-
-      <div class="footer-col" style="text-align:center;margin-top:var(--space-6);">
-        <h4 style="justify-content:center;display:flex;">Prefer email</h4>
-        <a href="mailto:samuelfreeman@sterlingoutbound.com" style="font-size:16px;color:var(--ink);">samuelfreeman@sterlingoutbound.com</a>
-      </div>
+  <section class="section section-tight" data-reveal>
+    <div class="container" style="max-width:600px;text-align:center;">
+      <a
+        href="https://calendly.com/samfreeman-sterlingoutbound"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-primary btn-lg"
+        onclick="if (window.Calendly) { Calendly.initPopupWidget({url:'https://calendly.com/samfreeman-sterlingoutbound?hide_gdpr_banner=1&background_color=f7f5f0&text_color=12162a&primary_color=2c4a72'}); return false; }"
+      >See Available Times</a>
+      <p class="reassure" style="margin-top:16px;">Opens in a scheduling window &mdash; 20 minutes, no pressure, no obligation.</p>
     </div>
   </section>
 
