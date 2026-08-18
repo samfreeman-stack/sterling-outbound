@@ -51,20 +51,18 @@
 
   <section class="section" data-reveal>
     <div class="container" style="max-width:720px;">
-      <div class="booking-picker" id="bookingPicker" data-fallback-url="https://calendly.com/samfreeman-sterlingoutbound">
-        <p class="booking-tz" id="bookingTz"></p>
-        <div class="booking-days" id="bookingDays"></div>
-        <div class="booking-slots" id="bookingSlots"></div>
+      <div class="calendly-wrap">
+        <div class="calendly-inline-widget" data-url="https://calendly.com/samfreeman-sterlingoutbound?hide_gdpr_banner=1&background_color=f7f5f0&text_color=12162a&primary_color=2c4a72" style="min-width:280px;height:680px;"></div>
       </div>
 
       <div style="text-align:center;margin-top:var(--space-4);">
-        <a href="https://calendly.com/samfreeman-sterlingoutbound" class="btn btn-ghost" target="_blank" rel="noopener">Or open the full calendar</a>
+        <a href="https://calendly.com/samfreeman-sterlingoutbound" class="btn btn-ghost" target="_blank" rel="noopener">Open in a new tab</a>
         <p class="reassure" style="margin-top:14px;">20 minutes. No pressure, no obligation.</p>
       </div>
 
       <div class="footer-col" style="text-align:center;margin-top:var(--space-6);">
         <h4 style="justify-content:center;display:flex;">Prefer email</h4>
-        <a href="mailto:hello@sterlingoutbound.co.uk" style="font-size:16px;color:var(--ink);">hello@sterlingoutbound.co.uk</a>
+        <a href="mailto:samuelfreeman@sterlingoutbound.com" style="font-size:16px;color:var(--ink);">samuelfreeman@sterlingoutbound.com</a>
       </div>
     </div>
   </section>
@@ -131,7 +129,7 @@
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <a href="mailto:hello@sterlingoutbound.co.uk">hello@sterlingoutbound.co.uk</a>
+        <a href="mailto:samuelfreeman@sterlingoutbound.com">samuelfreeman@sterlingoutbound.com</a>
         <a href="contact.html">See if we're a fit</a>
       </div>
       <div class="footer-col">
@@ -155,6 +153,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="js/main.js"></script>
-<script src="js/booking.js"></script>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>

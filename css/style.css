@@ -189,7 +189,7 @@ p { margin: 0 0 var(--space-2); color: var(--text-muted); }
   padding: 8px 0;
 }
 .nav-links a:not(.btn):hover,
-.nav-links a.active { color: var(--on-dark); }
+.nav-links a:not(.btn).active { color: var(--on-dark); }
 
 .has-dropdown { display: flex; align-items: center; gap: 4px; cursor: pointer; }
 .has-dropdown svg { width: 12px; height: 12px; transition: transform 200ms var(--ease); }
@@ -447,65 +447,13 @@ p { margin: 0 0 var(--space-2); color: var(--text-muted); }
 
 .meta-line { font-size: 14.5px; color: var(--text-muted); }
 
-/* ---- Booking picker (Calendly availability API) ---- */
-.booking-picker { display: flex; flex-direction: column; gap: var(--space-3); }
-.booking-tz { font-size: 12.5px; color: var(--text-dim); }
-.booking-days { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
-.booking-day-btn {
-  flex: none;
-  padding: 12px 18px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--line-strong);
-  background: var(--surface);
-  font-size: 13px;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: border-color 180ms var(--ease), color 180ms var(--ease), background 180ms var(--ease);
-  min-height: 44px;
-}
-.booking-day-btn:hover { border-color: var(--ink); color: var(--ink); }
-.booking-day-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); font-weight: 600; }
-
-.booking-slots {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
-  gap: 10px;
-}
-.booking-slot-btn {
-  padding: 13px 10px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--line-strong);
-  background: var(--surface);
-  color: var(--ink);
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  text-align: center;
-  transition: border-color 180ms var(--ease), color 180ms var(--ease), background 180ms var(--ease);
-  min-height: 44px;
-}
-.booking-slot-btn:hover { border-color: var(--accent); color: var(--accent); }
-
-.booking-state {
-  padding: var(--space-4);
-  text-align: center;
-  color: var(--text-muted);
-  font-size: 14.5px;
+/* ---- Calendly embed frame ---- */
+.calendly-wrap {
   border: 1px solid var(--line);
-  background: var(--surface);
+  overflow: hidden;
 }
-.booking-state a { color: var(--accent); font-weight: 600; }
-.booking-spinner {
-  width: 22px; height: 22px;
-  margin: 0 auto var(--space-2);
-  border-radius: 50%;
-  border: 2px solid var(--line-strong);
-  border-top-color: var(--accent);
-  animation: booking-spin 0.8s linear infinite;
-}
-@keyframes booking-spin { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) {
-  .booking-spinner { animation: none; }
+@media (max-width: 640px) {
+  .calendly-wrap .calendly-inline-widget { height: 780px !important; }
 }
 
 /* ---- Founder / trust card ---- */
