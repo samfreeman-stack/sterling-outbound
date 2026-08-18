@@ -42,15 +42,29 @@
 
   <!-- 1. HERO -->
   <section class="hero">
-    <div class="container hero-inner">
-      <span class="eyebrow">Outbound &amp; appointment setting for specialist trades</span>
-      <h1>More commercial contracts. Less time chasing them.</h1>
-      <p class="lede">We find the commercial businesses that need your specialist services, start the conversation, qualify genuine opportunities and book appointments directly into your calendar.</p>
-      <div class="hero-actions">
-        <a href="contact.html" class="btn btn-primary">See If We're A Fit</a>
-        <a href="how-it-works.html" class="btn btn-ghost">See How It Works</a>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Outbound &amp; appointment setting for specialist trades</span>
+        <h1>More commercial contracts. Less time chasing them.</h1>
+        <p class="lede">We find the commercial businesses that need your specialist services, start the conversation, qualify genuine opportunities and book appointments directly into your calendar.</p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn btn-primary">See If We're A Fit</a>
+          <a href="how-it-works.html" class="btn btn-ghost">See How It Works</a>
+        </div>
+        <p class="specialist-line" style="margin-top:var(--space-4);">TR19 &nbsp;&middot;&nbsp; Commercial Gas Safety &nbsp;&middot;&nbsp; Grease Trap Servicing</p>
       </div>
-      <p class="specialist-line" style="margin-top:var(--space-4);">TR19 &nbsp;&middot;&nbsp; Commercial Gas Safety &nbsp;&middot;&nbsp; Grease Trap Servicing</p>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-flow">
+          <ol class="hero-flow-list">
+            <li>Commercial businesses</li>
+            <li>Prospect research</li>
+            <li>Decision-makers</li>
+            <li>Outreach</li>
+            <li>Qualification</li>
+            <li class="is-final">Appointment</li>
+          </ol>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -79,6 +93,29 @@
           <a href="sectors/grease-trap.html" class="item-link">See how <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
+
+      <div style="margin-top:var(--space-7);">
+        <svg class="network-diagram" viewBox="0 0 560 300" role="img" aria-label="Diagram showing how Sterling Outbound maps a service area to relevant commercial business types and their decision-makers">
+          <path class="net-line" d="M80,150 L245,60"/>
+          <path class="net-line" d="M80,150 L330,95"/>
+          <path class="net-line" d="M80,150 L370,150"/>
+          <path class="net-line" d="M80,150 L330,205"/>
+          <path class="net-line" d="M80,150 L245,240"/>
+          <circle class="net-hub" cx="80" cy="150" r="15"/>
+          <text x="80" y="185" text-anchor="middle">Your service area</text>
+          <circle class="net-node is-accent" cx="245" cy="60" r="6"/>
+          <text x="260" y="58">Restaurant group</text>
+          <circle class="net-node" cx="330" cy="95" r="6"/>
+          <text x="345" y="93">Hotel</text>
+          <circle class="net-node is-accent" cx="370" cy="150" r="6"/>
+          <text x="385" y="148">Care home</text>
+          <circle class="net-node" cx="330" cy="205" r="6"/>
+          <text x="345" y="203">Commercial kitchen</text>
+          <circle class="net-node is-accent" cx="245" cy="240" r="6"/>
+          <text x="260" y="238">Property group</text>
+        </svg>
+        <p class="meta-line" style="margin-top:var(--space-2);">A representation of how targeting works — each business type is filtered down to the actual decision-maker, not a generic inbox.</p>
+      </div>
     </div>
   </section>
 
@@ -89,26 +126,24 @@
         <span class="eyebrow">The process</span>
         <h2>We find the opportunity. You take the job.</h2>
       </div>
-      <div class="editorial-grid-4">
-        <div class="editorial-item">
-          <span class="num">01</span>
-          <h3>Find</h3>
-          <p>Identify commercial businesses that fit your agreed target criteria.</p>
-        </div>
-        <div class="editorial-item">
-          <span class="num">02</span>
-          <h3>Contact</h3>
-          <p>Research the prospect and send relevant, personalised B2B outreach.</p>
-        </div>
-        <div class="editorial-item">
-          <span class="num">03</span>
-          <h3>Qualify</h3>
-          <p>Identify genuine interest and confirm the opportunity fits your criteria.</p>
-        </div>
-        <div class="editorial-item">
-          <span class="num">04</span>
-          <h3>Book</h3>
-          <p>Qualified opportunities are passed to you as appointments.</p>
+      <div class="process-track">
+        <div class="process-track-row">
+          <div class="process-node">
+            <div class="process-dot">01</div>
+            <div><h3>Find</h3><p>Businesses that fit your agreed target criteria come into view.</p></div>
+          </div>
+          <div class="process-node">
+            <div class="process-dot">02</div>
+            <div><h3>Contact</h3><p>A research-led, personalised line of contact opens with each one.</p></div>
+          </div>
+          <div class="process-node">
+            <div class="process-dot">03</div>
+            <div><h3>Qualify</h3><p>Genuine interest is identified and checked against your criteria.</p></div>
+          </div>
+          <div class="process-node is-final">
+            <div class="process-dot">04</div>
+            <div><h3>Book</h3><p>The qualified connection becomes a calendar appointment.</p></div>
+          </div>
         </div>
       </div>
       <p style="margin-top:var(--space-5);color:var(--text-muted);">No prospect lists to chase. No cold calling. No follow-up spreadsheets. <span style="color:var(--ink);">You just show up.</span></p>
@@ -125,42 +160,30 @@
         <span class="illustrative-label" style="margin-top:var(--space-2);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>Illustrative example — not a client result</span>
       </div>
 
-      <div class="demo-doc" style="max-width:760px;">
-        <div class="demo-meta">
-          <div class="demo-meta-item">
-            <div class="demo-meta-label">Target</div>
-            <div class="demo-meta-value">Multi-site London restaurant group (8 sites)</div>
-          </div>
-          <div class="demo-meta-item">
-            <div class="demo-meta-label">Decision maker</div>
-            <div class="demo-meta-value">Operations Manager</div>
-          </div>
+      <div class="story-flow">
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Target</span>
+          <div class="story-stage-value">Multi-site London restaurant group (8 sites)</div>
         </div>
-
-        <div class="demo-meta-item" style="margin-bottom:var(--space-4);">
-          <div class="demo-meta-label">Research</div>
-          <div class="demo-meta-value" style="font-weight:400;color:var(--text-muted);font-size:14.5px;">Group operates 8 restaurant sites across London. Extraction systems approaching their next scheduled cleaning cycle. No extraction contractor listed against the group's public supplier records.</div>
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Research</span>
+          <div class="story-stage-value"><strong>Operations Manager.</strong> Extraction systems approaching their next scheduled cleaning cycle. No extraction contractor listed against the group's public supplier records.</div>
         </div>
-
-        <div class="exchange">
-          <div class="exchange-item is-outreach">
-            <span class="exchange-label">Outreach</span>
-            <p>"Hi [Name] — noticed [Restaurant Group] has grown to 8 sites across London. Most groups this size are reviewing their extraction cleaning cover around now to stay ahead of the next inspection cycle site to site. Worth a short call to see if it's relevant?"</p>
-          </div>
-          <div class="exchange-item">
-            <span class="exchange-label">Response</span>
-            <p>"Hi, thanks for reaching out — timely, actually. Our current supplier hasn't been consistent across all sites. Can you tell me how you handle multi-site scheduling?"</p>
-          </div>
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Outreach</span>
+          <div class="story-stage-value is-quote">"Hi [Name] — noticed [Restaurant Group] has grown to 8 sites across London. Most groups this size are reviewing their extraction cleaning cover around now to stay ahead of the next inspection cycle site to site. Worth a short call to see if it's relevant?"</div>
         </div>
-
-        <div class="criteria-line">
-          <span class="criteria-label">Qualification</span>
-          Correct business type &middot; Relevant service &middot; In service area &middot; Decision-maker confirmed &middot; Timeframe: within 4 weeks
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Response</span>
+          <div class="story-stage-value is-quote">"Hi, thanks for reaching out — timely, actually. Our current supplier hasn't been consistent across all sites. Can you tell me how you handle multi-site scheduling?"</div>
         </div>
-
-        <div class="demo-result">
-          <span class="demo-result-label">Result</span>
-          <strong>Appointment booked</strong> — Tuesday, 10:00, site walk-through with the Operations Manager. Straight into the contractor's calendar.
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Qualification</span>
+          <div class="story-stage-value">Correct business type &middot; Relevant service &middot; In service area &middot; Decision-maker confirmed &middot; Timeframe: within 4 weeks</div>
+        </div>
+        <div class="story-stage is-final" data-reveal-item>
+          <span class="story-stage-label">Appointment</span>
+          <div class="story-stage-value"><strong>Booked</strong> — Tuesday, 10:00, site walk-through with the Operations Manager. Straight into the contractor's calendar.</div>
         </div>
       </div>
     </div>

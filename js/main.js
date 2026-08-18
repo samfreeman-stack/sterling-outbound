@@ -118,3 +118,78 @@ let lenis;
     });
   });
 })();
+
+/* ---------------------------------------------------------------------- */
+/* Hero discovery flow — lights up top-to-bottom shortly after load       */
+/* ---------------------------------------------------------------------- */
+(function initHeroFlow() {
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll(".hero-flow-list").forEach((list) => {
+    const items = list.querySelectorAll("li");
+    if (prefersReduced) {
+      items.forEach((li) => li.classList.add("is-lit"));
+      return;
+    }
+    items.forEach((li, i) => {
+      setTimeout(() => li.classList.add("is-lit"), 300 + i * 220);
+    });
+  });
+})();
+
+/* ---------------------------------------------------------------------- */
+/* Process track — nodes light up in sequence once scrolled into view     */
+/* ---------------------------------------------------------------------- */
+(function initProcessTrack() {
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const tracks = document.querySelectorAll(".process-track");
+  if (!tracks.length) return;
+
+  if (prefersReduced || typeof gsap === "undefined") {
+    tracks.forEach((track) => track.querySelectorAll(".process-node").forEach((n) => n.classList.add("is-lit")));
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+
+  tracks.forEach((track) => {
+    const nodes = track.querySelectorAll(".process-node");
+    ScrollTrigger.create({
+      trigger: track,
+      start: "top 80%",
+      once: true,
+      onEnter: () => {
+        nodes.forEach((n, i) => setTimeout(() => n.classList.add("is-lit"), i * 220));
+      },
+    });
+  });
+})();
+
+/* ---------------------------------------------------------------------- */
+/* Targeting network diagram — connecting lines draw in on scroll.        */
+/* Nodes stay visible via CSS at all times (only the lines are JS-        */
+/* animated), so the diagram never depends on a tween completing.        */
+/* ---------------------------------------------------------------------- */
+(function initNetworkDiagram() {
+  const svg = document.querySelector(".network-diagram");
+  if (!svg) return;
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReduced || typeof gsap === "undefined") return;
+
+  const lines = svg.querySelectorAll(".net-line");
+  if (!lines.length) return;
+
+  lines.forEach((line) => {
+    const len = line.getTotalLength();
+    line.style.strokeDasharray = String(len);
+    line.style.strokeDashoffset = String(len);
+  });
+
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.create({
+    trigger: svg,
+    start: "top 80%",
+    once: true,
+    onEnter: () => {
+      gsap.to(lines, { strokeDashoffset: 0, duration: 0.9, stagger: 0.12, ease: "power2.out" });
+    },
+  });
+})();

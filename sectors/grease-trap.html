@@ -41,10 +41,23 @@
 <main>
 
   <section class="page-hero">
-    <div class="container page-hero-inner">
-      <span class="sector-badge"><span class="dot"></span>Who we help</span>
-      <h1>Grease trap servicing</h1>
-      <p class="lede">We help you become the obvious call before a blocked drain becomes their emergency.</p>
+    <div class="container page-hero-grid">
+      <div class="page-hero-inner">
+        <span class="sector-badge"><span class="dot"></span>Who we help</span>
+        <h1>Grease trap servicing</h1>
+        <p class="lede">We help you become the obvious call before a blocked drain becomes their emergency.</p>
+      </div>
+      <div class="page-hero-visual" aria-hidden="true">
+        <svg class="sector-motif" viewBox="0 0 240 240" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M35 78 L88 78"/>
+          <path class="motif-accent" d="M76 72 L88 78 L76 84"/>
+          <rect x="88" y="58" width="112" height="120"/>
+          <line x1="128" y1="58" x2="128" y2="138"/>
+          <line x1="158" y1="98" x2="158" y2="178"/>
+          <path d="M200 158 L228 158"/>
+          <path class="motif-success" d="M216 152 L228 158 L216 164"/>
+        </svg>
+      </div>
     </div>
   </section>
 
@@ -73,11 +86,13 @@
         <span class="eyebrow">The process</span>
         <h2>Find &rarr; Contact &rarr; Qualify &rarr; Book</h2>
       </div>
-      <div class="editorial-grid-4">
-        <div class="editorial-item"><span class="num">01</span><h3>Find</h3><p>Food premises matching your service area and target profile.</p></div>
-        <div class="editorial-item"><span class="num">02</span><h3>Contact</h3><p>Personalised outreach to the manager who owns kitchen operations.</p></div>
-        <div class="editorial-item"><span class="num">03</span><h3>Qualify</h3><p>Confirm genuine interest in a recurring servicing schedule.</p></div>
-        <div class="editorial-item"><span class="num">04</span><h3>Book</h3><p>Appointment lands in your calendar. You just show up.</p></div>
+      <div class="process-track">
+        <div class="process-track-row">
+          <div class="process-node"><div class="process-dot">01</div><div><h3>Find</h3><p>Food premises matching your service area and target profile.</p></div></div>
+          <div class="process-node"><div class="process-dot">02</div><div><h3>Contact</h3><p>Personalised outreach to the manager who owns kitchen operations.</p></div></div>
+          <div class="process-node"><div class="process-dot">03</div><div><h3>Qualify</h3><p>Confirm genuine interest in a recurring servicing schedule.</p></div></div>
+          <div class="process-node is-final"><div class="process-dot">04</div><div><h3>Book</h3><p>Appointment lands in your calendar. You just show up.</p></div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -89,22 +104,30 @@
         <h2>An example grease trap campaign</h2>
         <span class="illustrative-label" style="margin-top:var(--space-2);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>Illustrative example — not a client result</span>
       </div>
-      <div class="demo-doc" style="max-width:720px;">
-        <div class="demo-meta">
-          <div class="demo-meta-item"><div class="demo-meta-label">Target</div><div class="demo-meta-value">Independent restaurant, city-centre site</div></div>
-          <div class="demo-meta-item"><div class="demo-meta-label">Decision maker</div><div class="demo-meta-value">General Manager</div></div>
+      <div class="story-flow">
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Target</span>
+          <div class="story-stage-value">Independent restaurant, city-centre site</div>
         </div>
-        <div class="exchange">
-          <div class="exchange-item is-outreach"><span class="exchange-label">Outreach</span><p>"Hi [Name] — a lot of kitchens on your street have had drainage issues this year. If you're not currently on a scheduled grease trap service, happy to explain how a maintenance plan usually compares to dealing with it as an emergency."</p></div>
-          <div class="exchange-item"><span class="exchange-label">Response</span><p>"We had a blockage last month actually, cost us a night of service. What does a regular plan look like?"</p></div>
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Research</span>
+          <div class="story-stage-value"><strong>General Manager.</strong> No current servicing contract found; nearby sites have reported drainage issues this year.</div>
         </div>
-        <div class="criteria-line">
-          <span class="criteria-label">Qualification</span>
-          Correct premises type &middot; In service area &middot; No current servicing contract &middot; Decision-maker confirmed
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Outreach</span>
+          <div class="story-stage-value is-quote">"Hi [Name] — a lot of kitchens on your street have had drainage issues this year. If you're not currently on a scheduled grease trap service, happy to explain how a maintenance plan usually compares to dealing with it as an emergency."</div>
         </div>
-        <div class="demo-result">
-          <span class="demo-result-label">Result</span>
-          <strong>Appointment booked</strong> — first service visit and maintenance plan discussion, direct into the contractor's calendar.
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Response</span>
+          <div class="story-stage-value is-quote">"We had a blockage last month actually, cost us a night of service. What does a regular plan look like?"</div>
+        </div>
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Qualification</span>
+          <div class="story-stage-value">Correct premises type &middot; In service area &middot; No current servicing contract &middot; Decision-maker confirmed</div>
+        </div>
+        <div class="story-stage is-final" data-reveal-item>
+          <span class="story-stage-label">Appointment</span>
+          <div class="story-stage-value"><strong>Booked</strong> — first service visit and maintenance plan discussion, direct into the contractor's calendar.</div>
         </div>
       </div>
     </div>

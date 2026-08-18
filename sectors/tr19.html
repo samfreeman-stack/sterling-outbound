@@ -41,10 +41,23 @@
 <main>
 
   <section class="page-hero">
-    <div class="container page-hero-inner">
-      <span class="sector-badge"><span class="dot"></span>Who we help</span>
-      <h1>Kitchen extraction &amp; TR19 compliance</h1>
-      <p class="lede">TR19 is the industry-recognised standard for commercial kitchen extraction cleaning. We connect you with the businesses that need it.</p>
+    <div class="container page-hero-grid">
+      <div class="page-hero-inner">
+        <span class="sector-badge"><span class="dot"></span>Who we help</span>
+        <h1>Kitchen extraction &amp; TR19 compliance</h1>
+        <p class="lede">TR19 is the industry-recognised standard for commercial kitchen extraction cleaning. We connect you with the businesses that need it.</p>
+      </div>
+      <div class="page-hero-visual" aria-hidden="true">
+        <svg class="sector-motif" viewBox="0 0 240 240" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M55 45 L185 45 L165 78 L75 78 Z"/>
+          <rect x="98" y="78" width="44" height="45"/>
+          <rect class="motif-accent" x="98" y="123" width="44" height="45"/>
+          <rect x="98" y="168" width="44" height="35"/>
+          <path class="motif-accent" d="M108 96 L120 106 L132 96"/>
+          <path class="motif-accent" d="M108 143 L120 153 L132 143"/>
+          <path d="M108 183 L120 193 L132 183"/>
+        </svg>
+      </div>
     </div>
   </section>
 
@@ -73,11 +86,13 @@
         <span class="eyebrow">The process</span>
         <h2>Find &rarr; Contact &rarr; Qualify &rarr; Book</h2>
       </div>
-      <div class="editorial-grid-4">
-        <div class="editorial-item"><span class="num">01</span><h3>Find</h3><p>Sites matching your TR19 target criteria and service area.</p></div>
-        <div class="editorial-item"><span class="num">02</span><h3>Contact</h3><p>Personalised outreach to the relevant facilities or property manager.</p></div>
-        <div class="editorial-item"><span class="num">03</span><h3>Qualify</h3><p>Confirm genuine, current cleaning need and decision-maker access.</p></div>
-        <div class="editorial-item"><span class="num">04</span><h3>Book</h3><p>Appointment lands in your calendar. You just show up.</p></div>
+      <div class="process-track">
+        <div class="process-track-row">
+          <div class="process-node"><div class="process-dot">01</div><div><h3>Find</h3><p>Sites matching your TR19 target criteria and service area.</p></div></div>
+          <div class="process-node"><div class="process-dot">02</div><div><h3>Contact</h3><p>Personalised outreach to the relevant facilities or property manager.</p></div></div>
+          <div class="process-node"><div class="process-dot">03</div><div><h3>Qualify</h3><p>Confirm genuine, current cleaning need and decision-maker access.</p></div></div>
+          <div class="process-node is-final"><div class="process-dot">04</div><div><h3>Book</h3><p>Appointment lands in your calendar. You just show up.</p></div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -89,22 +104,30 @@
         <h2>An example TR19 campaign</h2>
         <span class="illustrative-label" style="margin-top:var(--space-2);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>Illustrative example — not a client result</span>
       </div>
-      <div class="demo-doc" style="max-width:720px;">
-        <div class="demo-meta">
-          <div class="demo-meta-item"><div class="demo-meta-label">Target</div><div class="demo-meta-value">Independent care home group (4 sites)</div></div>
-          <div class="demo-meta-item"><div class="demo-meta-label">Decision maker</div><div class="demo-meta-value">Facilities Manager</div></div>
+      <div class="story-flow">
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Target</span>
+          <div class="story-stage-value">Independent care home group (4 sites)</div>
         </div>
-        <div class="exchange">
-          <div class="exchange-item is-outreach"><span class="exchange-label">Outreach</span><p>"Hi [Name] — with 4 kitchens across your group, keeping TR19 cleaning on a consistent cycle site to site can get difficult to track. Happy to send over how we'd approach scheduling across all four if useful?"</p></div>
-          <div class="exchange-item"><span class="exchange-label">Response</span><p>"That's actually a pain point for us right now — two sites are overdue. What would scheduling look like?"</p></div>
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Research</span>
+          <div class="story-stage-value"><strong>Facilities Manager.</strong> Four kitchens across the group, two overdue for their next TR19-standard clean.</div>
         </div>
-        <div class="criteria-line">
-          <span class="criteria-label">Qualification</span>
-          Correct premises type &middot; In service area &middot; Overdue for cleaning &middot; Decision-maker confirmed
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Outreach</span>
+          <div class="story-stage-value is-quote">"Hi [Name] — with 4 kitchens across your group, keeping TR19 cleaning on a consistent cycle site to site can get difficult to track. Happy to send over how we'd approach scheduling across all four if useful?"</div>
         </div>
-        <div class="demo-result">
-          <span class="demo-result-label">Result</span>
-          <strong>Appointment booked</strong> — site visit to scope all four kitchens, direct into the contractor's calendar.
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Response</span>
+          <div class="story-stage-value is-quote">"That's actually a pain point for us right now — two sites are overdue. What would scheduling look like?"</div>
+        </div>
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Qualification</span>
+          <div class="story-stage-value">Correct premises type &middot; In service area &middot; Overdue for cleaning &middot; Decision-maker confirmed</div>
+        </div>
+        <div class="story-stage is-final" data-reveal-item>
+          <span class="story-stage-label">Appointment</span>
+          <div class="story-stage-value"><strong>Booked</strong> — site visit to scope all four kitchens, direct into the contractor's calendar.</div>
         </div>
       </div>
     </div>

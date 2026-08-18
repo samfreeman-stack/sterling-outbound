@@ -41,10 +41,27 @@
 <main>
 
   <section class="page-hero">
-    <div class="container page-hero-inner">
-      <span class="sector-badge"><span class="dot"></span>Who we help</span>
-      <h1>Commercial gas safety</h1>
-      <p class="lede">Commercial kitchens with gas appliances need regular safety inspection to stay certified and insured. We put you in front of the businesses who need it now.</p>
+    <div class="container page-hero-grid">
+      <div class="page-hero-inner">
+        <span class="sector-badge"><span class="dot"></span>Who we help</span>
+        <h1>Commercial gas safety</h1>
+        <p class="lede">Commercial kitchens with gas appliances need regular safety inspection to stay certified and insured. We put you in front of the businesses who need it now.</p>
+      </div>
+      <div class="page-hero-visual" aria-hidden="true">
+        <svg class="sector-motif" viewBox="0 0 240 240" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="120" cy="118" r="68"/>
+          <g class="motif-accent">
+            <line x1="120" y1="54" x2="120" y2="68"/>
+            <line x1="120" y1="168" x2="120" y2="182"/>
+            <line x1="56" y1="118" x2="70" y2="118"/>
+            <line x1="170" y1="118" x2="184" y2="118"/>
+          </g>
+          <line class="motif-accent" x1="120" y1="118" x2="152" y2="88"/>
+          <circle cx="120" cy="118" r="4" fill="currentColor" stroke="none"/>
+          <path d="M120 186 L120 210"/>
+          <path d="M104 210 L136 210"/>
+        </svg>
+      </div>
     </div>
   </section>
 
@@ -73,11 +90,13 @@
         <span class="eyebrow">The process</span>
         <h2>Find &rarr; Contact &rarr; Qualify &rarr; Book</h2>
       </div>
-      <div class="editorial-grid-4">
-        <div class="editorial-item"><span class="num">01</span><h3>Find</h3><p>Premises approaching their inspection renewal window.</p></div>
-        <div class="editorial-item"><span class="num">02</span><h3>Contact</h3><p>Personalised outreach to the relevant operations or facilities contact.</p></div>
-        <div class="editorial-item"><span class="num">03</span><h3>Qualify</h3><p>Confirm current inspection need, timing and decision-maker access.</p></div>
-        <div class="editorial-item"><span class="num">04</span><h3>Book</h3><p>Appointment lands in your calendar. You just show up.</p></div>
+      <div class="process-track">
+        <div class="process-track-row">
+          <div class="process-node"><div class="process-dot">01</div><div><h3>Find</h3><p>Premises approaching their inspection renewal window.</p></div></div>
+          <div class="process-node"><div class="process-dot">02</div><div><h3>Contact</h3><p>Personalised outreach to the relevant operations or facilities contact.</p></div></div>
+          <div class="process-node"><div class="process-dot">03</div><div><h3>Qualify</h3><p>Confirm current inspection need, timing and decision-maker access.</p></div></div>
+          <div class="process-node is-final"><div class="process-dot">04</div><div><h3>Book</h3><p>Appointment lands in your calendar. You just show up.</p></div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -89,22 +108,30 @@
         <h2>An example gas safety campaign</h2>
         <span class="illustrative-label" style="margin-top:var(--space-2);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>Illustrative example — not a client result</span>
       </div>
-      <div class="demo-doc" style="max-width:720px;">
-        <div class="demo-meta">
-          <div class="demo-meta-item"><div class="demo-meta-label">Target</div><div class="demo-meta-value">Regional pub group (3 sites)</div></div>
-          <div class="demo-meta-item"><div class="demo-meta-label">Decision maker</div><div class="demo-meta-value">Operations Manager</div></div>
+      <div class="story-flow">
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Target</span>
+          <div class="story-stage-value">Regional pub group (3 sites)</div>
         </div>
-        <div class="exchange">
-          <div class="exchange-item is-outreach"><span class="exchange-label">Outreach</span><p>"Hi [Name] — your kitchen certificates across the 3 sites look like they'll be due for renewal within the next couple of months. Happy to get all three booked in together so nothing lapses site to site — worth a quick look?"</p></div>
-          <div class="exchange-item"><span class="exchange-label">Response</span><p>"Good timing, our usual engineer's been slow to respond lately. What dates could you do all three?"</p></div>
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Research</span>
+          <div class="story-stage-value"><strong>Operations Manager.</strong> Kitchen certificates across all three sites approaching renewal within the same window.</div>
         </div>
-        <div class="criteria-line">
-          <span class="criteria-label">Qualification</span>
-          Correct premises type &middot; In service area &middot; Renewal within 8 weeks &middot; Decision-maker confirmed
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Outreach</span>
+          <div class="story-stage-value is-quote">"Hi [Name] — your kitchen certificates across the 3 sites look like they'll be due for renewal within the next couple of months. Happy to get all three booked in together so nothing lapses site to site — worth a quick look?"</div>
         </div>
-        <div class="demo-result">
-          <span class="demo-result-label">Result</span>
-          <strong>Appointment booked</strong> — three-site inspection scheduled, direct into the engineer's calendar.
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Response</span>
+          <div class="story-stage-value is-quote">"Good timing, our usual engineer's been slow to respond lately. What dates could you do all three?"</div>
+        </div>
+        <div class="story-stage" data-reveal-item>
+          <span class="story-stage-label">Qualification</span>
+          <div class="story-stage-value">Correct premises type &middot; In service area &middot; Renewal within 8 weeks &middot; Decision-maker confirmed</div>
+        </div>
+        <div class="story-stage is-final" data-reveal-item>
+          <span class="story-stage-label">Appointment</span>
+          <div class="story-stage-value"><strong>Booked</strong> — three-site inspection scheduled, direct into the engineer's calendar.</div>
         </div>
       </div>
     </div>
