@@ -199,6 +199,50 @@ let lenis;
 })();
 
 /* ---------------------------------------------------------------------- */
+/* Campaign showcase — tab switching + spine draw-in                      */
+/* ---------------------------------------------------------------------- */
+(function initCampaignShowcase() {
+  const showcase = document.querySelector(".campaign-showcase");
+  if (!showcase) return;
+
+  const tabs = showcase.querySelectorAll(".campaign-tab");
+  const panels = showcase.querySelectorAll(".campaign-panel");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const target = tab.getAttribute("data-campaign-tab");
+      if (tab.classList.contains("is-active")) return;
+
+      tabs.forEach((t) => {
+        t.classList.toggle("is-active", t === tab);
+        t.setAttribute("aria-selected", String(t === tab));
+      });
+      panels.forEach((panel) => {
+        const match = panel.getAttribute("data-campaign-panel") === target;
+        panel.classList.toggle("is-active", match);
+        panel.hidden = !match;
+      });
+    });
+  });
+
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const spines = showcase.querySelectorAll(".campaign-spine");
+  if (prefersReduced || typeof gsap === "undefined") {
+    spines.forEach((s) => { s.style.transform = "scaleY(1)"; });
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.create({
+    trigger: showcase,
+    start: "top 70%",
+    once: true,
+    onEnter: () => {
+      gsap.to(spines, { scaleY: 1, duration: 1.2, ease: "power2.out" });
+    },
+  });
+})();
+
+/* ---------------------------------------------------------------------- */
 /* Targeting network diagram — connecting lines draw in on scroll.        */
 /* Nodes stay visible via CSS at all times (only the lines are JS-        */
 /* animated), so the diagram never depends on a tween completing.        */

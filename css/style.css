@@ -878,6 +878,150 @@ p { margin: 0 0 var(--space-2); color: var(--text-muted); }
   .process-node .process-dot { margin: 0; flex: none; }
 }
 
+/* ==========================================================================
+   Campaign showcase — the product story, told large.
+   A tabbed, full-bleed cinematic walkthrough of a real campaign per trade.
+   No cards, no dashboard chrome — a glowing vertical spine, big typography.
+   ========================================================================== */
+.campaign-showcase {
+  position: relative;
+  padding: var(--space-8) 0;
+  overflow: hidden;
+}
+.campaign-showcase::before {
+  content: "";
+  position: absolute;
+  inset: -15% -10%;
+  background: radial-gradient(1000px 760px at 50% 15%, rgba(59, 130, 246, 0.16), transparent 62%);
+  pointer-events: none;
+  z-index: 0;
+}
+.campaign-showcase .container { position: relative; z-index: 1; }
+
+.campaign-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-top: var(--space-4);
+}
+.campaign-tab {
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 240ms var(--ease);
+}
+.campaign-tab:hover { border-color: rgba(59, 130, 246, 0.4); color: var(--ink); }
+.campaign-tab.is-active {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.24), rgba(59, 130, 246, 0.06));
+  border-color: rgba(59, 130, 246, 0.55);
+  color: var(--ink);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.2), 0 14px 30px -14px rgba(59, 130, 246, 0.5);
+}
+
+.campaign-stage { position: relative; z-index: 1; margin-top: var(--space-6); }
+.campaign-panel { display: none; }
+.campaign-panel.is-active { display: block; animation: campaign-fade-in 550ms var(--ease); }
+@keyframes campaign-fade-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.campaign-panel-inner { max-width: 760px; margin: 0 auto; }
+.campaign-panel .illustrative-label { display: flex; width: fit-content; margin: 0 auto var(--space-6); }
+
+.campaign-journey { position: relative; padding-left: 78px; }
+.campaign-spine {
+  position: absolute;
+  left: 27px; top: 6px; bottom: 6px;
+  width: 3px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.75), rgba(59, 130, 246, 0.2) 55%, rgba(52, 211, 153, 0.75));
+  box-shadow: 0 0 18px rgba(59, 130, 246, 0.4);
+  transform: scaleY(0);
+  transform-origin: top;
+}
+.campaign-node-row { position: relative; padding-bottom: var(--space-6); }
+.campaign-node-row:last-child { padding-bottom: 0; }
+.campaign-node {
+  position: absolute;
+  left: -78px; top: 0;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(160deg, rgba(59, 130, 246, 0.24), rgba(59, 130, 246, 0.05));
+  border: 1.5px solid rgba(59, 130, 246, 0.45);
+  color: var(--accent-on-dark);
+  box-shadow: 0 0 0 5px rgba(59, 130, 246, 0.07), 0 18px 32px -16px rgba(59, 130, 246, 0.45);
+  z-index: 1;
+}
+.campaign-node svg { width: 24px; height: 24px; }
+.campaign-node-row.is-final .campaign-node {
+  background: linear-gradient(160deg, rgba(52, 211, 153, 0.26), rgba(52, 211, 153, 0.05));
+  border-color: rgba(52, 211, 153, 0.5);
+  color: var(--success);
+  box-shadow: 0 0 0 5px rgba(52, 211, 153, 0.09), 0 18px 32px -16px rgba(52, 211, 153, 0.5);
+}
+.campaign-label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-on-dark);
+  margin-bottom: 10px;
+  padding-top: 12px;
+}
+.campaign-node-row.is-final .campaign-label { color: var(--success); }
+.campaign-headline { font-family: var(--font-heading); font-size: clamp(19px, 2.4vw, 26px); font-weight: 700; color: var(--ink); line-height: 1.3; }
+.campaign-headline span { color: var(--text-dim); font-weight: 500; }
+.campaign-headline.is-success { color: var(--success); }
+.campaign-detail { font-size: 15px; color: var(--text-muted); margin-top: 6px; max-width: 560px; }
+.campaign-quote {
+  position: relative;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(16.5px, 1.7vw, 19px);
+  color: var(--ink);
+  line-height: 1.55;
+  max-width: 600px;
+  padding-left: 22px;
+}
+.campaign-quote::before {
+  content: "\201C";
+  position: absolute;
+  left: -6px; top: -10px;
+  font-size: 42px;
+  font-style: normal;
+  font-family: Georgia, serif;
+  color: rgba(59, 130, 246, 0.4);
+}
+.campaign-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 2px; }
+.campaign-tag {
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(52, 211, 153, 0.09);
+  border: 1px solid rgba(52, 211, 153, 0.32);
+  color: var(--success);
+}
+
+@media (max-width: 640px) {
+  .campaign-journey { padding-left: 62px; }
+  .campaign-spine { left: 19px; }
+  .campaign-node { left: -62px; width: 46px; height: 46px; }
+  .campaign-node svg { width: 20px; height: 20px; }
+  .campaign-tabs { gap: 8px; }
+  .campaign-tab { padding: 10px 16px; font-size: 13px; }
+}
+
 /* ---- Story flow (illustrative campaign walkthrough) ---- */
 .story-flow { position: relative; padding-left: 30px; max-width: 660px; }
 .story-flow::before {
