@@ -120,6 +120,27 @@ let lenis;
 })();
 
 /* ---------------------------------------------------------------------- */
+/* Hero network — businesses appear, one lights up as the relevant match  */
+/* ---------------------------------------------------------------------- */
+(function initHeroNetwork() {
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll(".hero-network").forEach((net) => {
+    const nodes = net.querySelectorAll("[data-hn-node]");
+    if (!nodes.length) return;
+    if (prefersReduced) {
+      nodes.forEach((n) => n.classList.add("is-shown"));
+      nodes[Math.floor(nodes.length / 2)].classList.add("is-match");
+      return;
+    }
+    nodes.forEach((n, i) => {
+      setTimeout(() => n.classList.add("is-shown"), 150 + i * 110);
+    });
+    const matchIndex = Math.floor(nodes.length / 2);
+    setTimeout(() => nodes[matchIndex].classList.add("is-match"), 150 + nodes.length * 110 + 300);
+  });
+})();
+
+/* ---------------------------------------------------------------------- */
 /* Hero discovery flow — lights up top-to-bottom shortly after load       */
 /* ---------------------------------------------------------------------- */
 (function initHeroFlow() {

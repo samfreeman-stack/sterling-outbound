@@ -638,6 +638,35 @@ p { margin: 0 0 var(--space-2); color: var(--text-muted); }
 .hero-flow-list li.is-final::before { border-color: var(--line-strong); }
 .hero-flow-list li.is-final.is-lit::before { background: var(--success); border-color: var(--success); }
 
+/* ---- Hero network (many businesses -> one relevant match) ---- */
+.hero-network { max-width: 380px; margin: 0 auto var(--space-1); text-align: center; }
+.hero-network-row { display: flex; justify-content: center; gap: 12px; margin-bottom: 12px; }
+.hn-node {
+  width: 30px; height: 30px;
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1.5px solid var(--line-strong);
+  color: var(--text-dim);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: background 500ms var(--ease), border-color 500ms var(--ease), color 500ms var(--ease), box-shadow 500ms var(--ease), opacity 400ms var(--ease), transform 400ms var(--ease);
+}
+.hn-node svg { width: 16px; height: 16px; }
+.hn-node.is-shown { opacity: 1; transform: translateY(0); }
+.hn-node.is-match {
+  background: linear-gradient(160deg, rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0.08));
+  border-color: rgba(59, 130, 246, 0.6);
+  color: var(--accent-on-dark);
+  box-shadow: 0 0 0 5px rgba(59, 130, 246, 0.14), 0 0 20px rgba(59, 130, 246, 0.5);
+}
+.hero-network-label { display: block; font-size: 11.5px; font-weight: 600; letter-spacing: 0.03em; color: var(--on-dark-muted); }
+.hero-network-connector {
+  width: 2px; height: 26px;
+  margin: 10px auto 0;
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.7), transparent);
+}
+
 /* ---- Hero pipeline card (floats on the dark hero gradient) ---- */
 .flow-card {
   background: var(--surface);
@@ -1070,6 +1099,36 @@ p { margin: 0 0 var(--space-2); color: var(--text-muted); }
   .stat-flow { flex-direction: column; align-items: flex-start; gap: var(--space-3); }
   .stat-flow-arrow { transform: rotate(90deg); margin-left: 4px; }
 }
+
+/* ---- Targeting filter (network -> filter criteria -> relevant prospects) ---- */
+.targeting-filter { margin-top: var(--space-5); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; }
+.targeting-filter-arrow { width: 2px; height: 30px; background: linear-gradient(180deg, rgba(59, 130, 246, 0.55), rgba(59, 130, 246, 0.1)); }
+.targeting-filter-label { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-on-dark); }
+.targeting-filter-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 640px; }
+.filter-chip {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.32);
+  color: var(--accent-on-dark);
+}
+.targeting-outcome {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.4);
+  color: var(--success);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 0 30px rgba(52, 211, 153, 0.25);
+}
+.targeting-outcome svg { width: 18px; height: 18px; flex: none; }
 
 /* ---- Targeting network diagram ---- */
 .network-diagram { width: 100%; height: auto; }
