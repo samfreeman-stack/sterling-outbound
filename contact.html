@@ -51,15 +51,22 @@
   </section>
 
   <section class="section section-tight" data-reveal>
-    <div class="container" style="max-width:600px;text-align:center;">
-      <a
-        href="https://calendly.com/samfreeman-sterlingoutbound/30min"
-        target="_blank"
-        rel="noopener"
-        class="btn btn-primary btn-lg"
-        onclick="if (window.Calendly) { Calendly.initPopupWidget({url:'https://calendly.com/samfreeman-sterlingoutbound/30min?hide_gdpr_banner=1&hide_event_type_details=1&background_color=f7f5f0&text_color=12162a&primary_color=2c4a72'}); return false; }"
-      >See Available Times</a>
-      <p class="reassure" style="margin-top:16px;">Opens in a scheduling window &mdash; 20 minutes, no pressure, no obligation.</p>
+    <div class="container" style="max-width:600px;">
+      <div class="card" style="text-align:center;">
+        <ul class="check-list" style="text-align:left;margin:0 0 var(--space-4);">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span>20 minutes, live &mdash; no pressure, no obligation</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span>See exactly how we'd approach your market</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span>Walk away with a clear yes or no on fit</span></li>
+        </ul>
+        <a
+          href="https://calendly.com/samfreeman-sterlingoutbound/30min"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-primary btn-lg"
+          onclick="if (window.Calendly) { Calendly.initPopupWidget({url:'https://calendly.com/samfreeman-sterlingoutbound/30min?hide_gdpr_banner=1&hide_event_type_details=1&background_color=f7f5f0&text_color=12162a&primary_color=2c4a72'}); return false; }"
+        >See Available Times</a>
+        <p class="reassure" style="margin-top:16px;">Opens in a scheduling window &mdash; 20 minutes, no pressure, no obligation.</p>
+      </div>
     </div>
   </section>
 
@@ -71,7 +78,7 @@
         <p class="lede">Not ready for a call? Tell us your service area and ideal customer and we'll show you the type of businesses we'd target and how we'd approach them — no commitment.</p>
       </div>
 
-      <form name="prospect-sample" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+      <form name="prospect-sample" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" class="card">
         <input type="hidden" name="form-name" value="prospect-sample" />
         <p style="position:absolute;left:-9999px;" aria-hidden="true">
           <label>Leave this field blank<input name="bot-field" tabindex="-1" autocomplete="off" /></label>

@@ -43,9 +43,10 @@
   --space-7: 96px;
   --space-8: 128px;
 
-  --radius: 4px;
-  --radius-sm: 3px;
+  --radius: 12px;
+  --radius-sm: 8px;
   --max-width: 1180px;
+  --success-on-dark: #8fceac;
 
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -142,18 +143,18 @@ p { margin: 0 0 var(--space-2); color: var(--text-muted); }
 .btn-lg { padding: 18px 38px; font-size: 16.5px; }
 .btn svg { width: 16px; height: 16px; flex: none; }
 
-/* dark-panel button variants (header, hero, cta-band, footer) */
-.site-header .btn-primary, .cta-band .btn-primary, .hero .btn-primary {
+/* dark-panel button variants (header, hero, page-hero, cta-band, footer) */
+.site-header .btn-primary, .cta-band .btn-primary, .hero .btn-primary, .page-hero .btn-primary {
   background: var(--on-dark);
   color: var(--dark);
   border-color: var(--on-dark);
 }
-.site-header .btn-primary:hover, .cta-band .btn-primary:hover, .hero .btn-primary:hover { background: var(--paper); }
-.site-header .btn-ghost, .cta-band .btn-ghost, .hero .btn-ghost {
+.site-header .btn-primary:hover, .cta-band .btn-primary:hover, .hero .btn-primary:hover, .page-hero .btn-primary:hover { background: var(--paper); }
+.site-header .btn-ghost, .cta-band .btn-ghost, .hero .btn-ghost, .page-hero .btn-ghost {
   color: var(--on-dark);
   border-color: var(--dark-line);
 }
-.site-header .btn-ghost:hover, .cta-band .btn-ghost:hover, .hero .btn-ghost:hover { border-color: var(--on-dark); }
+.site-header .btn-ghost:hover, .cta-band .btn-ghost:hover, .hero .btn-ghost:hover, .page-hero .btn-ghost:hover { border-color: var(--on-dark); }
 
 /* ---- Nav ---- */
 .site-header {
@@ -259,14 +260,22 @@ p { margin: 0 0 var(--space-2); color: var(--text-muted); }
 .reassure { font-size: 13.5px; color: var(--text-dim); }
 .specialist-line { font-size: 13.5px; color: var(--on-dark-muted); font-weight: 600; letter-spacing: 0.02em; }
 
-/* inner-page hero */
+/* inner-page hero — same dark gradient treatment as the homepage hero */
 .page-hero {
+  position: relative;
   padding: 150px 0 var(--space-6);
-  border-bottom: 1px solid var(--line);
   overflow: hidden;
+  background:
+    radial-gradient(720px 480px at 85% 0%, rgba(157, 185, 221, 0.2), transparent 60%),
+    linear-gradient(160deg, var(--dark) 0%, var(--dark-2) 48%, var(--accent-deep) 100%);
+  color: var(--on-dark);
 }
 .page-hero-inner { max-width: 720px; }
-.page-hero h1 { font-size: clamp(30px, 4.2vw, 46px); }
+.page-hero h1 { font-size: clamp(30px, 4.2vw, 46px); color: var(--on-dark); }
+.page-hero .eyebrow { color: var(--accent-on-dark); }
+.page-hero .lede { color: var(--on-dark-muted); }
+.page-hero .sector-badge { color: var(--on-dark-muted); }
+.page-hero .sector-badge .dot { background: var(--accent-on-dark); }
 .page-hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-5); align-items: center; }
 .hero-visual, .page-hero-visual { justify-self: center; width: 100%; }
 
@@ -351,7 +360,9 @@ p { margin: 0 0 var(--space-2); color: var(--text-muted); }
 .card {
   background: var(--surface);
   border: 1px solid var(--line);
+  border-radius: var(--radius);
   padding: var(--space-4);
+  box-shadow: 0 1px 2px rgba(18, 22, 42, 0.04);
 }
 .card h3 { font-size: 19px; margin-bottom: 10px; }
 .card p { margin-bottom: var(--space-2); font-size: 14.5px; }
@@ -518,6 +529,7 @@ p { margin: 0 0 var(--space-2); color: var(--text-muted); }
   width: 120px; height: 120px;
   background: var(--paper-alt);
   border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
   display: flex; align-items: center; justify-content: center;
   text-align: center;
   font-size: 11px;
@@ -670,10 +682,34 @@ p { margin: 0 0 var(--space-2); color: var(--text-muted); }
 .pill-active { background: rgba(44, 74, 114, 0.12); color: var(--accent); }
 .pill-queued { background: var(--paper-alt); color: var(--text-dim); }
 
-/* ---- Sector motif (abstract line-art beside page-hero copy) ---- */
-.sector-motif { width: 100%; max-width: 320px; margin: 0 auto; color: var(--line-strong); }
+/* ---- Sector motif (abstract line-art, floating in its own card on the dark hero) ---- */
+.motif-card {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: var(--space-4);
+  box-shadow: 0 40px 70px -24px rgba(6, 9, 24, 0.5);
+  max-width: 320px;
+  margin: 0 auto;
+  animation: float-bob 6s ease-in-out infinite;
+}
+.sector-motif { width: 100%; color: var(--line-strong); }
 .sector-motif .motif-accent { stroke: var(--accent); }
 .sector-motif .motif-success { stroke: var(--success); }
+
+/* ---- Gentle floating motion for hero widgets ---- */
+@keyframes float-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.flow-card { animation: float-bob 7s ease-in-out infinite; }
+
+/* ---- Pulse for "live"/in-progress status ---- */
+@keyframes pulse-dot {
+  0% { box-shadow: 0 0 0 0 currentColor; opacity: 1; }
+  70% { box-shadow: 0 0 0 6px transparent; opacity: 0.4; }
+  100% { box-shadow: 0 0 0 0 transparent; opacity: 1; }
+}
+.pill-active::before { animation: pulse-dot 1.6s ease-out infinite; }
 
 /* ---- Process track (Find -> Contact -> Qualify -> Book) ---- */
 .process-track { margin-top: var(--space-5); }
@@ -769,9 +805,18 @@ p { margin: 0 0 var(--space-2); color: var(--text-muted); }
 .story-stage-value.is-quote { font-style: italic; }
 .story-stage-value strong { font-weight: 700; }
 
-/* ---- Stat flow (illustrative economics, typographic not boxed) ---- */
-.stat-flow { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-3) var(--space-4); }
-.stat-flow-item { text-align: left; }
+/* ---- Stat flow (illustrative economics) ---- */
+.stat-flow { display: flex; align-items: stretch; flex-wrap: wrap; gap: var(--space-3) var(--space-3); }
+.stat-flow-item {
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  box-shadow: 0 1px 2px rgba(18, 22, 42, 0.04);
+  transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
+}
+.stat-flow-item:hover { transform: translateY(-3px); box-shadow: 0 20px 32px -18px rgba(18, 22, 42, 0.22); }
 .stat-flow-num { display: block; font-family: var(--font-heading); font-size: clamp(28px, 4vw, 40px); font-weight: 700; color: var(--ink); line-height: 1; }
 .stat-flow-num.is-accent { color: var(--accent); }
 .stat-flow-num.is-final { color: var(--success); }

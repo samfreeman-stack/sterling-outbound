@@ -164,6 +164,41 @@ let lenis;
 })();
 
 /* ---------------------------------------------------------------------- */
+/* Stat numbers — count up from 0 once scrolled into view                */
+/* ---------------------------------------------------------------------- */
+(function initStatCountUp() {
+  const nums = document.querySelectorAll(".stat-flow-num");
+  if (!nums.length) return;
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReduced || typeof gsap === "undefined") return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  nums.forEach((el) => {
+    const match = el.textContent.trim().match(/^(\D*)([\d,]+)(\D*)$/);
+    if (!match) return;
+    const [, prefix, numStr, suffix] = match;
+    const target = parseInt(numStr.replace(/,/g, ""), 10);
+    if (Number.isNaN(target)) return;
+    const counter = { val: 0 };
+    ScrollTrigger.create({
+      trigger: el,
+      start: "top 90%",
+      once: true,
+      onEnter: () => {
+        gsap.to(counter, {
+          val: target,
+          duration: 1.1,
+          ease: "power1.out",
+          onUpdate: () => {
+            el.textContent = prefix + Math.round(counter.val).toLocaleString("en-GB") + suffix;
+          },
+        });
+      },
+    });
+  });
+})();
+
+/* ---------------------------------------------------------------------- */
 /* Targeting network diagram — connecting lines draw in on scroll.        */
 /* Nodes stay visible via CSS at all times (only the lines are JS-        */
 /* animated), so the diagram never depends on a tween completing.        */
