@@ -220,6 +220,39 @@ let lenis;
 })();
 
 /* ---------------------------------------------------------------------- */
+/* Qualification journey — Prospect -> Engaged -> Qualified -> Appointment */
+/* lights up in sequence once scrolled into view, communicating movement. */
+/* ---------------------------------------------------------------------- */
+(function initQualificationJourney() {
+  const flow = document.querySelector(".funnel-flow");
+  if (!flow) return;
+
+  const stages = flow.querySelectorAll(".stage");
+  const arrows = flow.querySelectorAll(".arrow");
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const STAGGER = 380;
+
+  const reveal = () => {
+    stages.forEach((s, i) => setTimeout(() => s.classList.add("is-reached"), i * STAGGER));
+    arrows.forEach((a, i) => setTimeout(() => a.classList.add("is-passed"), i * STAGGER + STAGGER / 2));
+  };
+
+  if (prefersReduced) {
+    stages.forEach((s) => s.classList.add("is-reached"));
+    arrows.forEach((a) => a.classList.add("is-passed"));
+    return;
+  }
+  if (typeof gsap === "undefined") { reveal(); return; }
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.create({
+    trigger: flow,
+    start: "top 85%",
+    once: true,
+    onEnter: reveal,
+  });
+})();
+
+/* ---------------------------------------------------------------------- */
 /* Campaign showcase — tab switching + spine draw-in                      */
 /* ---------------------------------------------------------------------- */
 (function initCampaignShowcase() {
@@ -228,6 +261,45 @@ let lenis;
 
   const tabs = showcase.querySelectorAll(".campaign-tab");
   const panels = showcase.querySelectorAll(".campaign-panel");
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const hasGsap = typeof gsap !== "undefined";
+  if (hasGsap) gsap.registerPlugin(ScrollTrigger);
+
+  const STAGGER = 260; // ms between each stage lighting up
+
+  function playJourney(panel) {
+    const rows = panel.querySelectorAll(".campaign-node-row");
+    const spine = panel.querySelector(".campaign-spine");
+    const pulse = panel.querySelector(".campaign-pulse");
+
+    rows.forEach((r) => r.classList.remove("is-lit"));
+
+    if (prefersReduced || !hasGsap) {
+      rows.forEach((r) => r.classList.add("is-lit"));
+      if (spine) spine.style.transform = "scaleY(1)";
+      if (pulse) pulse.style.opacity = "0";
+      return;
+    }
+
+    const totalMs = (rows.length - 1) * STAGGER + 550;
+    rows.forEach((r, i) => setTimeout(() => r.classList.add("is-lit"), i * STAGGER));
+
+    if (spine) {
+      gsap.set(spine, { scaleY: 0 });
+      gsap.to(spine, { scaleY: 1, duration: totalMs / 1000, ease: "none" });
+    }
+    if (pulse) {
+      const travel = Math.max(spine ? spine.offsetHeight : 0, 0);
+      gsap.killTweensOf(pulse);
+      gsap.set(pulse, { y: 0, opacity: 1 });
+      gsap.to(pulse, {
+        y: travel,
+        duration: totalMs / 1000,
+        ease: "none",
+        onComplete: () => gsap.to(pulse, { opacity: 0, duration: 0.4 }),
+      });
+    }
+  }
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
@@ -238,28 +310,29 @@ let lenis;
         t.classList.toggle("is-active", t === tab);
         t.setAttribute("aria-selected", String(t === tab));
       });
+      let shownPanel = null;
       panels.forEach((panel) => {
         const match = panel.getAttribute("data-campaign-panel") === target;
         panel.classList.toggle("is-active", match);
         panel.hidden = !match;
+        if (match) shownPanel = panel;
       });
+      if (shownPanel) playJourney(shownPanel);
     });
   });
 
-  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const spines = showcase.querySelectorAll(".campaign-spine");
-  if (prefersReduced || typeof gsap === "undefined") {
-    spines.forEach((s) => { s.style.transform = "scaleY(1)"; });
+  const activePanel = showcase.querySelector(".campaign-panel.is-active");
+  if (!activePanel) return;
+
+  if (prefersReduced || !hasGsap) {
+    playJourney(activePanel);
     return;
   }
-  gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.create({
     trigger: showcase,
     start: "top 70%",
     once: true,
-    onEnter: () => {
-      gsap.to(spines, { scaleY: 1, duration: 1.2, ease: "power2.out" });
-    },
+    onEnter: () => playJourney(activePanel),
   });
 })();
 

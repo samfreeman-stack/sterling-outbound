@@ -407,7 +407,7 @@ p { margin: 0 0 var(--space-2); color: var(--text-muted); }
 .step h3 { font-size: 21px; margin-bottom: 8px; }
 .step p { font-size: 15px; max-width: 560px; }
 
-/* ---- Illustrative example label ---- */
+/* ---- Illustrative example label (legacy — superseded by .demo-banner) ---- */
 .illustrative-label {
   display: inline-flex;
   align-items: center;
@@ -422,7 +422,42 @@ p { margin: 0 0 var(--space-2); color: var(--text-muted); }
 }
 .illustrative-label svg { width: 14px; height: 14px; flex: none; }
 
-/* ---- Qualification flow (typographic, not boxed) ---- */
+/* ---- Demonstration banner (prominent, professional "this is fictional" label) ---- */
+.demo-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  max-width: 560px;
+  margin: var(--space-3) 0 0;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.03));
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  text-align: left;
+}
+.demo-banner-icon {
+  flex: none;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(59, 130, 246, 0.16);
+  color: var(--accent-on-dark);
+  margin-top: 1px;
+}
+.demo-banner-icon svg { width: 16px; height: 16px; }
+.demo-banner-title {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 13.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+.demo-banner-copy p { font-size: 13.5px; color: var(--text-muted); margin: 0; line-height: 1.5; }
+
+/* ---- Qualification flow (typographic, not boxed — with a travelling reveal) ---- */
 .funnel-flow {
   display: flex;
   align-items: baseline;
@@ -432,13 +467,44 @@ p { margin: 0 0 var(--space-2); color: var(--text-muted); }
   font-size: clamp(18px, 2.4vw, 23px);
   color: var(--text-muted);
 }
-.funnel-flow .stage { font-weight: 600; }
-.funnel-flow .stage.is-final { color: var(--accent); }
-.funnel-flow .arrow { color: var(--text-dim); font-size: 0.75em; }
+.funnel-flow .stage {
+  position: relative;
+  font-weight: 600;
+  padding-left: 22px;
+  transition: color 400ms var(--ease);
+}
+.funnel-flow .stage::after {
+  content: "";
+  position: absolute;
+  left: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid var(--line-strong);
+  transition: background 450ms var(--ease), border-color 450ms var(--ease), box-shadow 450ms var(--ease);
+}
+.funnel-flow .stage.is-reached { color: var(--ink); }
+.funnel-flow .stage.is-reached::after {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.18), 0 0 10px rgba(59, 130, 246, 0.55);
+}
+.funnel-flow .stage.is-final.is-reached { color: var(--success); }
+.funnel-flow .stage.is-final.is-reached::after {
+  background: var(--success);
+  border-color: var(--success);
+  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.18), 0 0 10px rgba(52, 211, 153, 0.55);
+}
+.funnel-flow .arrow { color: var(--text-dim); font-size: 0.75em; transition: color 450ms var(--ease); }
+.funnel-flow .arrow.is-passed { color: var(--accent); }
 @media (max-width: 560px) {
   .funnel-flow { flex-direction: column; align-items: flex-start; gap: 6px; }
   .funnel-flow .arrow { display: none; }
-  .funnel-flow .stage::before { content: "\2192"; margin-right: 8px; color: var(--text-dim); }
+  .funnel-flow .stage { padding-left: 0; }
+  .funnel-flow .stage::after { display: none; }
+  .funnel-flow .stage::before { content: "\2192"; margin-right: 8px; color: var(--text-dim); transition: color 450ms var(--ease); }
+  .funnel-flow .stage.is-reached::before { color: var(--accent); }
   .funnel-flow .stage:first-child::before { content: ""; margin-right: 0; }
 }
 
@@ -963,7 +1029,7 @@ p { margin: 0 0 var(--space-2); color: var(--text-muted); }
 }
 
 .campaign-panel-inner { max-width: 760px; margin: 0 auto; }
-.campaign-panel .illustrative-label { display: flex; width: fit-content; margin: 0 auto var(--space-6); }
+.campaign-panel .demo-banner { margin: 0 auto var(--space-6); }
 
 .campaign-journey { position: relative; padding-left: 78px; }
 .campaign-spine {
@@ -976,26 +1042,56 @@ p { margin: 0 0 var(--space-2); color: var(--text-muted); }
   transform: scaleY(0);
   transform-origin: top;
 }
-.campaign-node-row { position: relative; padding-bottom: var(--space-6); }
+.campaign-node-row {
+  position: relative;
+  padding-bottom: var(--space-6);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 500ms var(--ease), transform 500ms var(--ease);
+}
 .campaign-node-row:last-child { padding-bottom: 0; }
+.campaign-node-row.is-lit { opacity: 1; transform: translateY(0); }
 .campaign-node {
   position: absolute;
   left: -78px; top: 0;
   width: 56px; height: 56px;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(160deg, rgba(59, 130, 246, 0.24), rgba(59, 130, 246, 0.05));
-  border: 1.5px solid rgba(59, 130, 246, 0.45);
-  color: var(--accent-on-dark);
-  box-shadow: 0 0 0 5px rgba(59, 130, 246, 0.07), 0 18px 32px -16px rgba(59, 130, 246, 0.45);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1.5px solid var(--line-strong);
+  color: var(--text-dim);
   z-index: 1;
+  transition: background 450ms var(--ease), border-color 450ms var(--ease), color 450ms var(--ease), box-shadow 450ms var(--ease);
 }
 .campaign-node svg { width: 24px; height: 24px; }
-.campaign-node-row.is-final .campaign-node {
+.campaign-node-row.is-lit .campaign-node {
+  background: linear-gradient(160deg, rgba(59, 130, 246, 0.24), rgba(59, 130, 246, 0.05));
+  border-color: rgba(59, 130, 246, 0.45);
+  color: var(--accent-on-dark);
+  box-shadow: 0 0 0 5px rgba(59, 130, 246, 0.07), 0 18px 32px -16px rgba(59, 130, 246, 0.45);
+  animation: node-flash 550ms var(--ease);
+}
+.campaign-node-row.is-final.is-lit .campaign-node {
   background: linear-gradient(160deg, rgba(52, 211, 153, 0.26), rgba(52, 211, 153, 0.05));
   border-color: rgba(52, 211, 153, 0.5);
   color: var(--success);
   box-shadow: 0 0 0 5px rgba(52, 211, 153, 0.09), 0 18px 32px -16px rgba(52, 211, 153, 0.5);
+}
+@keyframes node-flash {
+  0% { transform: scale(0.8); }
+  55% { transform: scale(1.14); }
+  100% { transform: scale(1); }
+}
+.campaign-pulse {
+  position: absolute;
+  left: 21px; top: 0;
+  width: 15px; height: 15px;
+  border-radius: 50%;
+  background: var(--accent-on-dark);
+  box-shadow: 0 0 6px 2px rgba(59, 130, 246, 0.5), 0 0 18px 6px rgba(59, 130, 246, 0.4);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
 }
 .campaign-label {
   display: block;
